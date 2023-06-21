@@ -80,6 +80,8 @@ namespace ServoController
         private void button5_Click(object sender, EventArgs e)
         {
             var count = Convert.ToInt32(textBox2.Text); //user defined
+            if (count == 0)
+                count =+ 1;
             int i = 0;
             //make same moves {count}x times
             while (i < count)
