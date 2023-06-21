@@ -246,5 +246,25 @@ namespace ServoController
             else
                 MessageBox.Show(this, "fill the textbox", "Warning!", MessageBoxButtons.OK);
         }
+
+        private void saveAsTextFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text Files | *.txt";
+            saveFileDialog.DefaultExt = "txt";
+            if(saveFileDialog.ShowDialog() == DialogResult.OK && listBox1.Items!=null)
+            {
+                System.IO.Stream fileStream = saveFileDialog.OpenFile();
+                System.IO.StreamWriter sw = new System.IO.StreamWriter(fileStream);
+                foreach(var item in listBox1.Items)
+                {
+                    sw.WriteLine(item);
+                }
+                sw.Flush();
+                sw.Close();
+
+                MessageBox.Show(this, $"{Path.GetFileName(saveFileDialog.FileName)} Saved Successfully", "Message", MessageBoxButtons.OK);
+            }
+        }
     }
 }

@@ -70,6 +70,9 @@
             button6 = new Button();
             textBox1 = new TextBox();
             button7 = new Button();
+            menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            saveAsTextFileToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)Servo1Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo2Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo3Pos).BeginInit();
@@ -80,12 +83,13 @@
             ((System.ComponentModel.ISupportInitialize)Servo7Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ServoSpeed).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // Servo1Pos
             // 
             Servo1Pos.Anchor = AnchorStyles.Top;
-            Servo1Pos.Location = new Point(34, 33);
+            Servo1Pos.Location = new Point(31, 74);
             Servo1Pos.Maximum = 180;
             Servo1Pos.Name = "Servo1Pos";
             Servo1Pos.Orientation = Orientation.Vertical;
@@ -98,7 +102,7 @@
             // Servo2Pos
             // 
             Servo2Pos.Anchor = AnchorStyles.Top;
-            Servo2Pos.Location = new Point(119, 33);
+            Servo2Pos.Location = new Point(116, 74);
             Servo2Pos.Maximum = 180;
             Servo2Pos.Name = "Servo2Pos";
             Servo2Pos.Orientation = Orientation.Vertical;
@@ -111,7 +115,7 @@
             // Servo3Pos
             // 
             Servo3Pos.Anchor = AnchorStyles.Top;
-            Servo3Pos.Location = new Point(196, 33);
+            Servo3Pos.Location = new Point(193, 74);
             Servo3Pos.Maximum = 180;
             Servo3Pos.Name = "Servo3Pos";
             Servo3Pos.Orientation = Orientation.Vertical;
@@ -124,7 +128,7 @@
             // Servo5Pos
             // 
             Servo5Pos.Anchor = AnchorStyles.Top;
-            Servo5Pos.Location = new Point(359, 33);
+            Servo5Pos.Location = new Point(356, 74);
             Servo5Pos.Maximum = 180;
             Servo5Pos.Name = "Servo5Pos";
             Servo5Pos.Orientation = Orientation.Vertical;
@@ -137,7 +141,7 @@
             // Servo6Pos
             // 
             Servo6Pos.Anchor = AnchorStyles.Top;
-            Servo6Pos.Location = new Point(435, 33);
+            Servo6Pos.Location = new Point(432, 74);
             Servo6Pos.Maximum = 180;
             Servo6Pos.Name = "Servo6Pos";
             Servo6Pos.Orientation = Orientation.Vertical;
@@ -150,7 +154,7 @@
             // Servo4Pos
             // 
             Servo4Pos.Anchor = AnchorStyles.Top;
-            Servo4Pos.Location = new Point(274, 33);
+            Servo4Pos.Location = new Point(271, 74);
             Servo4Pos.Maximum = 180;
             Servo4Pos.Name = "Servo4Pos";
             Servo4Pos.Orientation = Orientation.Vertical;
@@ -163,7 +167,7 @@
             // Servo8Pos
             // 
             Servo8Pos.Anchor = AnchorStyles.Top;
-            Servo8Pos.Location = new Point(597, 33);
+            Servo8Pos.Location = new Point(594, 74);
             Servo8Pos.Maximum = 180;
             Servo8Pos.Name = "Servo8Pos";
             Servo8Pos.Orientation = Orientation.Vertical;
@@ -176,7 +180,7 @@
             // Servo7Pos
             // 
             Servo7Pos.Anchor = AnchorStyles.Top;
-            Servo7Pos.Location = new Point(516, 33);
+            Servo7Pos.Location = new Point(513, 74);
             Servo7Pos.Maximum = 180;
             Servo7Pos.Name = "Servo7Pos";
             Servo7Pos.Orientation = Orientation.Vertical;
@@ -211,7 +215,7 @@
             // Servo1Lab
             // 
             Servo1Lab.AutoSize = true;
-            Servo1Lab.Location = new Point(34, 10);
+            Servo1Lab.Location = new Point(31, 56);
             Servo1Lab.Name = "Servo1Lab";
             Servo1Lab.Size = new Size(42, 15);
             Servo1Lab.TabIndex = 36;
@@ -249,7 +253,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(119, 10);
+            label3.Location = new Point(116, 56);
             label3.Name = "label3";
             label3.Size = new Size(42, 15);
             label3.TabIndex = 40;
@@ -258,7 +262,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(196, 10);
+            label4.Location = new Point(193, 56);
             label4.Name = "label4";
             label4.Size = new Size(42, 15);
             label4.TabIndex = 41;
@@ -267,7 +271,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(274, 10);
+            label5.Location = new Point(271, 56);
             label5.Name = "label5";
             label5.Size = new Size(42, 15);
             label5.TabIndex = 42;
@@ -276,7 +280,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(359, 9);
+            label6.Location = new Point(356, 55);
             label6.Name = "label6";
             label6.Size = new Size(42, 15);
             label6.TabIndex = 43;
@@ -285,7 +289,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(435, 10);
+            label7.Location = new Point(432, 56);
             label7.Name = "label7";
             label7.Size = new Size(42, 15);
             label7.TabIndex = 44;
@@ -294,7 +298,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(516, 9);
+            label8.Location = new Point(513, 55);
             label8.Name = "label8";
             label8.Size = new Size(42, 15);
             label8.TabIndex = 45;
@@ -303,7 +307,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(597, 10);
+            label9.Location = new Point(594, 56);
             label9.Name = "label9";
             label9.Size = new Size(42, 15);
             label9.TabIndex = 46;
@@ -331,7 +335,7 @@
             // Servo1Label
             // 
             Servo1Label.AutoSize = true;
-            Servo1Label.Location = new Point(47, 683);
+            Servo1Label.Location = new Point(44, 724);
             Servo1Label.Name = "Servo1Label";
             Servo1Label.Size = new Size(19, 15);
             Servo1Label.TabIndex = 49;
@@ -340,7 +344,7 @@
             // Servo2Label
             // 
             Servo2Label.AutoSize = true;
-            Servo2Label.Location = new Point(133, 683);
+            Servo2Label.Location = new Point(130, 724);
             Servo2Label.Name = "Servo2Label";
             Servo2Label.Size = new Size(19, 15);
             Servo2Label.TabIndex = 50;
@@ -349,7 +353,7 @@
             // Servo3Label
             // 
             Servo3Label.AutoSize = true;
-            Servo3Label.Location = new Point(209, 683);
+            Servo3Label.Location = new Point(206, 724);
             Servo3Label.Name = "Servo3Label";
             Servo3Label.Size = new Size(19, 15);
             Servo3Label.TabIndex = 51;
@@ -358,7 +362,7 @@
             // Servo4Label
             // 
             Servo4Label.AutoSize = true;
-            Servo4Label.Location = new Point(288, 683);
+            Servo4Label.Location = new Point(285, 724);
             Servo4Label.Name = "Servo4Label";
             Servo4Label.Size = new Size(19, 15);
             Servo4Label.TabIndex = 52;
@@ -367,7 +371,7 @@
             // Servo5Label
             // 
             Servo5Label.AutoSize = true;
-            Servo5Label.Location = new Point(374, 683);
+            Servo5Label.Location = new Point(371, 724);
             Servo5Label.Name = "Servo5Label";
             Servo5Label.Size = new Size(19, 15);
             Servo5Label.TabIndex = 53;
@@ -376,7 +380,7 @@
             // Servo6Label
             // 
             Servo6Label.AutoSize = true;
-            Servo6Label.Location = new Point(450, 683);
+            Servo6Label.Location = new Point(447, 724);
             Servo6Label.Name = "Servo6Label";
             Servo6Label.Size = new Size(19, 15);
             Servo6Label.TabIndex = 54;
@@ -385,7 +389,7 @@
             // Servo7Label
             // 
             Servo7Label.AutoSize = true;
-            Servo7Label.Location = new Point(530, 683);
+            Servo7Label.Location = new Point(527, 724);
             Servo7Label.Name = "Servo7Label";
             Servo7Label.Size = new Size(19, 15);
             Servo7Label.TabIndex = 55;
@@ -394,7 +398,7 @@
             // Servo8Label
             // 
             Servo8Label.AutoSize = true;
-            Servo8Label.Location = new Point(611, 683);
+            Servo8Label.Location = new Point(608, 724);
             Servo8Label.Name = "Servo8Label";
             Servo8Label.Size = new Size(19, 15);
             Servo8Label.TabIndex = 56;
@@ -502,6 +506,29 @@
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1904, 24);
+            menuStrip1.TabIndex = 68;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saveAsTextFileToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // saveAsTextFileToolStripMenuItem
+            // 
+            saveAsTextFileToolStripMenuItem.Name = "saveAsTextFileToolStripMenuItem";
+            saveAsTextFileToolStripMenuItem.Size = new Size(180, 22);
+            saveAsTextFileToolStripMenuItem.Text = "Save as text file";
+            saveAsTextFileToolStripMenuItem.Click += saveAsTextFileToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -549,6 +576,8 @@
             Controls.Add(Servo3Pos);
             Controls.Add(Servo2Pos);
             Controls.Add(Servo1Pos);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Servo Controller";
             Load += Form1_Load;
@@ -562,6 +591,8 @@
             ((System.ComponentModel.ISupportInitialize)Servo7Pos).EndInit();
             ((System.ComponentModel.ISupportInitialize)ServoSpeed).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -610,5 +641,8 @@
         private Button button6;
         private TextBox textBox1;
         private Button button7;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem saveAsTextFileToolStripMenuItem;
     }
 }
