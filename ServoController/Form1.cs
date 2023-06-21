@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using System.IO.Ports;
-using System.Windows.Forms;
+using System.Text;
 
 namespace ServoController
 {
@@ -79,21 +79,30 @@ namespace ServoController
 
         private void button5_Click(object sender, EventArgs e)
         {
-            foreach (var item in listBox1.Items)
+            var count = Convert.ToInt32(textBox2.Text); //user defined
+            int i = 0;
+            //make same moves {count}x times
+            while (i < count)
             {
-                if (item.ToString().Length > 6)
+                foreach (var item in listBox1.Items)
                 {
-                    SerialPort.WriteLine(item.ToString());
-                    Debug.WriteLine(item.ToString());
-                    Debug.WriteLine("------------------------");
-                }
-                else
-                {
-                    Thread.Sleep(Convert.ToInt32(item));
-                }
+                    if (item.ToString().Length > 6)
+                    {
+                        SerialPort.WriteLine(item.ToString());
+                        Debug.WriteLine(item.ToString());
+                        Debug.WriteLine("------------------------");
+                    }
+                    else
+                    {
+                        Thread.Sleep(Convert.ToInt32(item));
+                    }
 
 
+                }
+                i++;
             }
+
+
         }
 
         private void Servo1Pos_ValueChanged(object sender, EventArgs e)
@@ -252,11 +261,11 @@ namespace ServoController
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Text Files | *.txt";
             saveFileDialog.DefaultExt = "txt";
-            if(saveFileDialog.ShowDialog() == DialogResult.OK && listBox1.Items!=null)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK && listBox1.Items != null)
             {
                 System.IO.Stream fileStream = saveFileDialog.OpenFile();
                 System.IO.StreamWriter sw = new System.IO.StreamWriter(fileStream);
-                foreach(var item in listBox1.Items)
+                foreach (var item in listBox1.Items)
                 {
                     sw.WriteLine(item);
                 }
@@ -264,6 +273,27 @@ namespace ServoController
                 sw.Close();
 
                 MessageBox.Show(this, $"{Path.GetFileName(saveFileDialog.FileName)} Saved Successfully", "Message", MessageBoxButtons.OK);
+            }
+        }
+
+        private void uploadTextFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files | *.txt";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                System.IO.Stream fileStream = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read);
+                using (System.IO.StreamReader sr = new System.IO.StreamReader(fileStream, Encoding.UTF8))
+                {
+                    string line = String.Empty;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(line);
+                    }
+                }
+                fileStream.Dispose();
+                MessageBox.Show(this, "MoveList Updated Successfully", "Message", MessageBoxButtons.OK);
+
             }
         }
     }

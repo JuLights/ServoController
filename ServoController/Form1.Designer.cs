@@ -72,7 +72,10 @@
             button7 = new Button();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
+            uploadTextFileToolStripMenuItem = new ToolStripMenuItem();
             saveAsTextFileToolStripMenuItem = new ToolStripMenuItem();
+            textBox2 = new TextBox();
+            label12 = new Label();
             ((System.ComponentModel.ISupportInitialize)Servo1Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo2Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo3Pos).BeginInit();
@@ -418,7 +421,7 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(731, 28);
+            listBox1.Location = new Point(731, 48);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(583, 139);
             listBox1.TabIndex = 58;
@@ -455,7 +458,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(1010, 193);
+            button5.Location = new Point(1010, 189);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
             button5.TabIndex = 62;
@@ -517,23 +520,49 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saveAsTextFileToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { uploadTextFileToolStripMenuItem, saveAsTextFileToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
             // 
+            // uploadTextFileToolStripMenuItem
+            // 
+            uploadTextFileToolStripMenuItem.Name = "uploadTextFileToolStripMenuItem";
+            uploadTextFileToolStripMenuItem.Size = new Size(154, 22);
+            uploadTextFileToolStripMenuItem.Text = "Upload text file";
+            uploadTextFileToolStripMenuItem.Click += uploadTextFileToolStripMenuItem_Click;
+            // 
             // saveAsTextFileToolStripMenuItem
             // 
             saveAsTextFileToolStripMenuItem.Name = "saveAsTextFileToolStripMenuItem";
-            saveAsTextFileToolStripMenuItem.Size = new Size(180, 22);
+            saveAsTextFileToolStripMenuItem.Size = new Size(154, 22);
             saveAsTextFileToolStripMenuItem.Text = "Save as text file";
             saveAsTextFileToolStripMenuItem.Click += saveAsTextFileToolStripMenuItem_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(904, 187);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 69;
+            textBox2.Text = "0";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(963, 28);
+            label12.Name = "label12";
+            label12.Size = new Size(58, 15);
+            label12.TabIndex = 70;
+            label12.Text = "Move List";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1904, 1041);
+            Controls.Add(label12);
+            Controls.Add(textBox2);
             Controls.Add(button7);
             Controls.Add(textBox1);
             Controls.Add(button6);
@@ -644,5 +673,8 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem saveAsTextFileToolStripMenuItem;
+        private TextBox textBox2;
+        private ToolStripMenuItem uploadTextFileToolStripMenuItem;
+        private Label label12;
     }
 }
