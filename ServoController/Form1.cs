@@ -1,25 +1,66 @@
 using System.Diagnostics;
 using System.IO.Ports;
 using System.Text;
+using ServoControllerCLI;
+using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace ServoController
 {
     public partial class Form1 : Form
     {
 
+        private readonly ControllerCLI _cli;
         private SerialPort SerialPort;
         public Form1()
         {
             InitializeComponent();
 
+            _cli = new ControllerCLI();
+            
+            //BackgroundWorker worker = new BackgroundWorker();
+            //worker.DoWork += Worker_DoWork;
+            //worker.RunWorkerAsync();
+
             statusLabel.ForeColor = Color.Red;
             statusLabel.Text = "Not Connected!";
 
+            _cli.OnOutputComand += _cli_OnOutputComand;
+            _cli.OnAppendComand += _cli_OnAppendComand;
+
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void _cli_OnAppendComand(object? sender, ListEventArgs e)
         {
+            foreach (var item in e.listEventArgs)
+            {
+                BeginInvoke(() =>
+                {
+                    listBox1.Items.Add(item);
+                });
+            }
+            
+        }
 
+        private void _cli_OnOutputComand(object? sender, EventArgs e)
+        {
+            foreach (var item in listBox1.Items)
+            {
+                _cli._list.Add(item);
+            }
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            _cli.Initialize();
+
+            await Task.Run(async() =>
+            {
+                await _cli.CLILoop();
+            });
+
+            //_cli.CLILoop();
+            
         }
 
         private void Servo1Lab_DoubleClick(object sender, EventArgs e)
@@ -250,6 +291,8 @@ namespace ServoController
 
         }
 
+
+        //Add Value
         private void button7_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrWhiteSpace(textBox1.Text))
