@@ -15,6 +15,11 @@ namespace ServoControllerCLI
 
         public List<object> _list = new List<object>();
 
+        //static void Main(string[] args)
+        //{
+        //    //Console.WriteLine("Hello, World!");
+        //}
+
         public void Initialize()
         {
             AllocConsole();
