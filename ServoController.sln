@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServoController", "ServoController\ServoController.csproj", "{7D2CB749-05C6-429A-92E6-3768F4C91403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServoControllerCLI", "ServoControllerCLI\ServoControllerCLI.csproj", "{38CF4543-7984-4442-8944-A1FEEFA3F8B6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{7D2CB749-05C6-429A-92E6-3768F4C91403}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D2CB749-05C6-429A-92E6-3768F4C91403}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D2CB749-05C6-429A-92E6-3768F4C91403}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38CF4543-7984-4442-8944-A1FEEFA3F8B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38CF4543-7984-4442-8944-A1FEEFA3F8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38CF4543-7984-4442-8944-A1FEEFA3F8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38CF4543-7984-4442-8944-A1FEEFA3F8B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
