@@ -9,6 +9,7 @@ namespace ServoController
 {
     public partial class Form1 : Form
     {
+        public int x1, x2, x3, x4, y1, y2, y3, y4, s = 1000;
 
         private readonly ControllerCLI _cli;
         private SerialPort SerialPort;
@@ -17,7 +18,7 @@ namespace ServoController
             InitializeComponent();
 
             _cli = new ControllerCLI();
-            
+
             //BackgroundWorker worker = new BackgroundWorker();
             //worker.DoWork += Worker_DoWork;
             //worker.RunWorkerAsync();
@@ -27,6 +28,7 @@ namespace ServoController
 
             _cli.OnOutputComand += _cli_OnOutputComand;
             _cli.OnAppendComand += _cli_OnAppendComand;
+            currentSpeedLabel.Text = $"Current Speed: {s}ms";
 
         }
 
@@ -39,7 +41,7 @@ namespace ServoController
                     listBox1.Items.Add(item);
                 });
             }
-            
+
         }
 
         private void _cli_OnOutputComand(object? sender, EventArgs e)
@@ -54,13 +56,13 @@ namespace ServoController
         {
             _cli.Initialize();
 
-            await Task.Run(async() =>
+            await Task.Run(async () =>
             {
                 await _cli.CLILoop();
             });
 
             //_cli.CLILoop();
-            
+
         }
 
         private void Servo1Lab_DoubleClick(object sender, EventArgs e)
@@ -70,7 +72,7 @@ namespace ServoController
 
         private void connectBut_Click(object sender, EventArgs e)
         {
-            SerialPort = new SerialPort("COM" + numericUpDown1.Value, 9600);
+            SerialPort = new SerialPort("COM" + numericUpDown1.Value, 115200);
             SerialPort.Open();
             if (SerialPort.IsOpen)
             {
@@ -93,8 +95,10 @@ namespace ServoController
         private void button2_Click(object sender, EventArgs e)
         {
             //0 90 1 1 40 7
-            string command = $"0 {Servo1Pos.Value} {ServoSpeed.Value} 1 {Servo2Pos.Value} {ServoSpeed.Value} 2 {Servo3Pos.Value} {ServoSpeed.Value} 3 {Servo4Pos.Value} {ServoSpeed.Value} 4 {Servo5Pos.Value} {ServoSpeed.Value} 5 {Servo6Pos.Value} {ServoSpeed.Value} 6 {Servo7Pos.Value} {ServoSpeed.Value} 7 {Servo8Pos.Value} {ServoSpeed.Value}";
-            listBox1.Items.Add(command);
+            //string command = $"0 {Servo1Pos.Value} {ServoSpeed.Value} 1 {Servo2Pos.Value} {ServoSpeed.Value} 2 {Servo3Pos.Value} {ServoSpeed.Value} 3 {Servo4Pos.Value} {ServoSpeed.Value} 4 {Servo5Pos.Value} {ServoSpeed.Value} 5 {Servo6Pos.Value} {ServoSpeed.Value} 6 {Servo7Pos.Value} {ServoSpeed.Value} 7 {Servo8Pos.Value} {ServoSpeed.Value}";
+            ////listBox1.Items.Add(command);
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            listBox1.Items.Add(servoCommand);
 
         }
 
@@ -122,7 +126,7 @@ namespace ServoController
         {
             var count = Convert.ToInt32(textBox2.Text); //user defined
             if (count == 0)
-                count =+ 1;
+                count = +1;
             int i = 0;
             //make same moves {count}x times
             while (i < count)
@@ -148,14 +152,19 @@ namespace ServoController
 
         }
 
+
+
         private void Servo1Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo1Label.Text = Servo1Pos.Value.ToString();
             //Debug.WriteLine(Servo1Pos.Value);
-            string command = $"0 {Servo1Pos.Value} {ServoSpeed.Value}";
+            x1 = Servo1Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            Debug.WriteLine(servoCommand);
+            //string command = $"0 {Servo1Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -167,10 +176,12 @@ namespace ServoController
         private void Servo2Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo2Label.Text = Servo2Pos.Value.ToString();
-            string command = $"1 {Servo2Pos.Value} {ServoSpeed.Value}";
+            x2 = Servo2Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            //string command = $"1 {Servo2Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -181,10 +192,12 @@ namespace ServoController
         private void Servo3Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo3Label.Text = Servo3Pos.Value.ToString();
-            string command = $"2 {Servo3Pos.Value} {ServoSpeed.Value}";
+            x3 = Servo3Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            //string command = $"2 {Servo3Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -195,10 +208,12 @@ namespace ServoController
         private void Servo4Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo4Label.Text = Servo4Pos.Value.ToString();
-            string command = $"3 {Servo4Pos.Value} {ServoSpeed.Value}";
+            x4 = Servo4Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            //string command = $"3 {Servo4Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -209,10 +224,12 @@ namespace ServoController
         private void Servo5Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo5Label.Text = Servo5Pos.Value.ToString();
-            string command = $"4 {Servo5Pos.Value} {ServoSpeed.Value}";
+            y1 = Servo5Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            //string command = $"4 {Servo5Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -223,10 +240,12 @@ namespace ServoController
         private void Servo6Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo6Label.Text = Servo6Pos.Value.ToString();
-            string command = $"5 {Servo6Pos.Value} {ServoSpeed.Value}";
+            y2 = Servo6Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            //string command = $"5 {Servo6Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -238,10 +257,12 @@ namespace ServoController
         private void Servo7Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo7Label.Text = Servo7Pos.Value.ToString();
-            string command = $"6 {Servo7Pos.Value} {ServoSpeed.Value}";
+            y3 = Servo7Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            //string command = $"6 {Servo7Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -252,10 +273,12 @@ namespace ServoController
         private void Servo8Pos_ValueChanged(object sender, EventArgs e)
         {
             Servo8Label.Text = Servo8Pos.Value.ToString();
-            string command = $"7 {Servo8Pos.Value} {ServoSpeed.Value}";
+            y4 = Servo8Pos.Value;
+            string servoCommand = $"x{x1},{x2},{x3},{x4}y{y1},{y2},{y3},{y4}s{s}";
+            //string command = $"7 {Servo8Pos.Value} {ServoSpeed.Value}";
             if (SerialPort != null)
             {
-                SerialPort.WriteLine(command);
+                SerialPort.WriteLine(servoCommand);
             }
             else
             {
@@ -271,16 +294,18 @@ namespace ServoController
                 if (listBox1.Items[listBox1.SelectedIndex].ToString().Length > 6)
                 {
                     var desiredValues = listBox1.Items[listBox1.SelectedIndex].ToString();
-                    var arr = desiredValues.Split(" ");
+                    var arr = desiredValues.Split(",");
 
-                    Servo1Pos.Value = Convert.ToInt32(arr[1]);
-                    Servo2Pos.Value = Convert.ToInt32(arr[4]);
-                    Servo3Pos.Value = Convert.ToInt32(arr[7]);
-                    Servo4Pos.Value = Convert.ToInt32(arr[10]);
-                    Servo5Pos.Value = Convert.ToInt32(arr[13]);
-                    Servo6Pos.Value = Convert.ToInt32(arr[16]);
-                    Servo7Pos.Value = Convert.ToInt32(arr[19]);
-                    Servo8Pos.Value = Convert.ToInt32(arr[22]);
+                    Servo1Pos.Value = Convert.ToInt32(arr[0].Split("x")[1]);
+                    Servo2Pos.Value = Convert.ToInt32(arr[1]);
+                    Servo3Pos.Value = Convert.ToInt32(arr[2]);
+                    var arrY = arr[3].Split("y");
+                    Servo4Pos.Value = Convert.ToInt32(arr[3].Split("y")[0]);
+                    Servo5Pos.Value = Convert.ToInt32(arr[3].Split("y")[1]);
+                    Servo6Pos.Value = Convert.ToInt32(arr[4]);
+                    Servo7Pos.Value = Convert.ToInt32(arr[5]);
+                    Servo8Pos.Value = Convert.ToInt32(arr[6].Split("s")[0]);
+                    speedSlider.Value = Convert.ToInt32(arr[6].Split("s")[1]);
                 }
             }
             else
@@ -340,6 +365,46 @@ namespace ServoController
                 MessageBox.Show(this, "MoveList Updated Successfully", "Message", MessageBoxButtons.OK);
 
             }
+        }
+
+        private void speedSlider_ValueChanged(object sender, EventArgs e)
+        {
+            s = speedSlider.Value;
+            currentSpeedLabel.Text = $"Current Speed: {speedSlider.Value}ms";
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            s = 1000;
+            speedSlider.Value = s;
+            currentSpeedLabel.Text = $"Current Speed: {speedSlider.Value}ms";
+        }
+
+        private void SetSliderDefaultBut_Click(object sender, EventArgs e)
+        {
+            Servo1Pos.Value = 0;
+            Servo2Pos.Value = 0;
+            Servo3Pos.Value = 0;
+            Servo4Pos.Value = 0;
+            Servo5Pos.Value = 0;
+            Servo6Pos.Value = 0;
+            Servo7Pos.Value = 0;
+            Servo8Pos.Value = 0;
+            Servo1Label.Text = Servo1Pos.Value.ToString();
+            Servo2Label.Text = Servo2Pos.Value.ToString();
+            Servo3Label.Text = Servo3Pos.Value.ToString();
+            Servo4Label.Text = Servo4Pos.Value.ToString();
+            Servo5Label.Text = Servo5Pos.Value.ToString();
+            Servo6Label.Text = Servo6Pos.Value.ToString();
+            Servo7Label.Text = Servo7Pos.Value.ToString();
+            Servo8Label.Text = Servo8Pos.Value.ToString();
+
+            SerialPort.WriteLine($"x0,0,0,0y0,0,0,0s1000");
+        }
+
+        private void ClearListBut_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
         }
     }
 }

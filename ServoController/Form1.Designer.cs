@@ -37,11 +37,9 @@
             Servo8Pos = new TrackBar();
             Servo7Pos = new TrackBar();
             connectBut = new Button();
-            ServoSpeed = new TrackBar();
             Servo1Lab = new Label();
             numericUpDown1 = new NumericUpDown();
             label1 = new Label();
-            label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -76,6 +74,13 @@
             saveAsTextFileToolStripMenuItem = new ToolStripMenuItem();
             textBox2 = new TextBox();
             label12 = new Label();
+            speedSlider = new TrackBar();
+            label13 = new Label();
+            currentSpeedLabel = new Label();
+            label14 = new Label();
+            button8 = new Button();
+            SetSliderDefaultBut = new Button();
+            ClearListBut = new Button();
             ((System.ComponentModel.ISupportInitialize)Servo1Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo2Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo3Pos).BeginInit();
@@ -84,334 +89,344 @@
             ((System.ComponentModel.ISupportInitialize)Servo4Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo8Pos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Servo7Pos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ServoSpeed).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)speedSlider).BeginInit();
             SuspendLayout();
             // 
             // Servo1Pos
             // 
             Servo1Pos.Anchor = AnchorStyles.Top;
-            Servo1Pos.Location = new Point(31, 74);
-            Servo1Pos.Maximum = 180;
+            Servo1Pos.Location = new Point(44, 123);
+            Servo1Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo1Pos.Maximum = 100;
+            Servo1Pos.Minimum = -100;
             Servo1Pos.Name = "Servo1Pos";
             Servo1Pos.Orientation = Orientation.Vertical;
-            Servo1Pos.Size = new Size(45, 647);
+            Servo1Pos.Size = new Size(69, 1078);
             Servo1Pos.TabIndex = 0;
             Servo1Pos.TickStyle = TickStyle.Both;
-            Servo1Pos.Value = 90;
             Servo1Pos.ValueChanged += Servo1Pos_ValueChanged;
             // 
             // Servo2Pos
             // 
             Servo2Pos.Anchor = AnchorStyles.Top;
-            Servo2Pos.Location = new Point(116, 74);
-            Servo2Pos.Maximum = 180;
+            Servo2Pos.Location = new Point(166, 123);
+            Servo2Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo2Pos.Maximum = 100;
+            Servo2Pos.Minimum = -100;
             Servo2Pos.Name = "Servo2Pos";
             Servo2Pos.Orientation = Orientation.Vertical;
-            Servo2Pos.Size = new Size(45, 647);
+            Servo2Pos.Size = new Size(69, 1078);
             Servo2Pos.TabIndex = 1;
             Servo2Pos.TickStyle = TickStyle.Both;
-            Servo2Pos.Value = 90;
             Servo2Pos.ValueChanged += Servo2Pos_ValueChanged;
             // 
             // Servo3Pos
             // 
             Servo3Pos.Anchor = AnchorStyles.Top;
-            Servo3Pos.Location = new Point(193, 74);
-            Servo3Pos.Maximum = 180;
+            Servo3Pos.Location = new Point(276, 123);
+            Servo3Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo3Pos.Maximum = 100;
+            Servo3Pos.Minimum = -100;
             Servo3Pos.Name = "Servo3Pos";
             Servo3Pos.Orientation = Orientation.Vertical;
-            Servo3Pos.Size = new Size(45, 647);
+            Servo3Pos.Size = new Size(69, 1078);
             Servo3Pos.TabIndex = 2;
             Servo3Pos.TickStyle = TickStyle.Both;
-            Servo3Pos.Value = 90;
             Servo3Pos.ValueChanged += Servo3Pos_ValueChanged;
             // 
             // Servo5Pos
             // 
             Servo5Pos.Anchor = AnchorStyles.Top;
-            Servo5Pos.Location = new Point(356, 74);
-            Servo5Pos.Maximum = 180;
+            Servo5Pos.Location = new Point(509, 123);
+            Servo5Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo5Pos.Maximum = 40;
+            Servo5Pos.Minimum = -60;
             Servo5Pos.Name = "Servo5Pos";
             Servo5Pos.Orientation = Orientation.Vertical;
-            Servo5Pos.Size = new Size(45, 647);
+            Servo5Pos.Size = new Size(69, 1078);
             Servo5Pos.TabIndex = 3;
             Servo5Pos.TickStyle = TickStyle.Both;
-            Servo5Pos.Value = 90;
             Servo5Pos.ValueChanged += Servo5Pos_ValueChanged;
             // 
             // Servo6Pos
             // 
             Servo6Pos.Anchor = AnchorStyles.Top;
-            Servo6Pos.Location = new Point(432, 74);
-            Servo6Pos.Maximum = 180;
+            Servo6Pos.Location = new Point(617, 123);
+            Servo6Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo6Pos.Maximum = 40;
+            Servo6Pos.Minimum = -60;
             Servo6Pos.Name = "Servo6Pos";
             Servo6Pos.Orientation = Orientation.Vertical;
-            Servo6Pos.Size = new Size(45, 647);
+            Servo6Pos.Size = new Size(69, 1078);
             Servo6Pos.TabIndex = 4;
             Servo6Pos.TickStyle = TickStyle.Both;
-            Servo6Pos.Value = 90;
             Servo6Pos.ValueChanged += Servo6Pos_ValueChanged;
             // 
             // Servo4Pos
             // 
             Servo4Pos.Anchor = AnchorStyles.Top;
-            Servo4Pos.Location = new Point(271, 74);
-            Servo4Pos.Maximum = 180;
+            Servo4Pos.Location = new Point(387, 123);
+            Servo4Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo4Pos.Maximum = 100;
+            Servo4Pos.Minimum = -100;
             Servo4Pos.Name = "Servo4Pos";
             Servo4Pos.Orientation = Orientation.Vertical;
-            Servo4Pos.Size = new Size(45, 647);
+            Servo4Pos.Size = new Size(69, 1078);
             Servo4Pos.TabIndex = 8;
             Servo4Pos.TickStyle = TickStyle.Both;
-            Servo4Pos.Value = 90;
             Servo4Pos.ValueChanged += Servo4Pos_ValueChanged;
             // 
             // Servo8Pos
             // 
             Servo8Pos.Anchor = AnchorStyles.Top;
-            Servo8Pos.Location = new Point(594, 74);
-            Servo8Pos.Maximum = 180;
+            Servo8Pos.Location = new Point(849, 123);
+            Servo8Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo8Pos.Maximum = 40;
+            Servo8Pos.Minimum = -60;
             Servo8Pos.Name = "Servo8Pos";
             Servo8Pos.Orientation = Orientation.Vertical;
-            Servo8Pos.Size = new Size(45, 647);
+            Servo8Pos.Size = new Size(69, 1078);
             Servo8Pos.TabIndex = 9;
             Servo8Pos.TickStyle = TickStyle.Both;
-            Servo8Pos.Value = 90;
             Servo8Pos.ValueChanged += Servo8Pos_ValueChanged;
             // 
             // Servo7Pos
             // 
             Servo7Pos.Anchor = AnchorStyles.Top;
-            Servo7Pos.Location = new Point(513, 74);
-            Servo7Pos.Maximum = 180;
+            Servo7Pos.Location = new Point(733, 123);
+            Servo7Pos.Margin = new Padding(4, 5, 4, 5);
+            Servo7Pos.Maximum = 40;
+            Servo7Pos.Minimum = -60;
             Servo7Pos.Name = "Servo7Pos";
             Servo7Pos.Orientation = Orientation.Vertical;
-            Servo7Pos.Size = new Size(45, 647);
+            Servo7Pos.Size = new Size(69, 1078);
             Servo7Pos.TabIndex = 10;
             Servo7Pos.TickStyle = TickStyle.Both;
-            Servo7Pos.Value = 90;
             Servo7Pos.ValueChanged += Servo7Pos_ValueChanged;
             // 
             // connectBut
             // 
             connectBut.Anchor = AnchorStyles.Right;
-            connectBut.Location = new Point(1195, 525);
+            connectBut.Location = new Point(1707, 875);
+            connectBut.Margin = new Padding(4, 5, 4, 5);
             connectBut.Name = "connectBut";
-            connectBut.Size = new Size(75, 23);
+            connectBut.Size = new Size(107, 38);
             connectBut.TabIndex = 17;
             connectBut.Text = "Connect";
             connectBut.UseVisualStyleBackColor = true;
             connectBut.Click += connectBut_Click;
             // 
-            // ServoSpeed
-            // 
-            ServoSpeed.Anchor = AnchorStyles.Right;
-            ServoSpeed.Location = new Point(963, 286);
-            ServoSpeed.Maximum = 8;
-            ServoSpeed.Minimum = 1;
-            ServoSpeed.Name = "ServoSpeed";
-            ServoSpeed.Size = new Size(307, 45);
-            ServoSpeed.TabIndex = 35;
-            ServoSpeed.Value = 1;
-            // 
             // Servo1Lab
             // 
             Servo1Lab.AutoSize = true;
-            Servo1Lab.Location = new Point(31, 56);
+            Servo1Lab.Location = new Point(44, 93);
+            Servo1Lab.Margin = new Padding(4, 0, 4, 0);
             Servo1Lab.Name = "Servo1Lab";
-            Servo1Lab.Size = new Size(42, 15);
+            Servo1Lab.Size = new Size(62, 25);
             Servo1Lab.TabIndex = 36;
-            Servo1Lab.Text = "Servo1";
+            Servo1Lab.Text = "2 FL-X";
             Servo1Lab.DoubleClick += Servo1Lab_DoubleClick;
             // 
             // numericUpDown1
             // 
             numericUpDown1.Anchor = AnchorStyles.Right;
-            numericUpDown1.Location = new Point(1069, 525);
+            numericUpDown1.Location = new Point(1527, 875);
+            numericUpDown1.Margin = new Padding(4, 5, 4, 5);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
+            numericUpDown1.Size = new Size(171, 31);
             numericUpDown1.TabIndex = 37;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(1028, 529);
+            label1.Location = new Point(1469, 882);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(35, 15);
+            label1.Size = new Size(53, 25);
             label1.TabIndex = 38;
             label1.Text = "COM";
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Location = new Point(1114, 246);
-            label2.Name = "label2";
-            label2.Size = new Size(94, 15);
-            label2.TabIndex = 39;
-            label2.Text = "Servo Speed(0;8)";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(116, 56);
+            label3.Location = new Point(166, 93);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(42, 15);
+            label3.Size = new Size(65, 25);
             label3.TabIndex = 40;
-            label3.Text = "Servo2";
+            label3.Text = "1 FR-X";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(193, 56);
+            label4.Location = new Point(276, 93);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(42, 15);
+            label4.Size = new Size(63, 25);
             label4.TabIndex = 41;
-            label4.Text = "Servo3";
+            label4.Text = "1 BL-X";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(271, 56);
+            label5.Location = new Point(387, 93);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(42, 15);
+            label5.Size = new Size(66, 25);
             label5.TabIndex = 42;
-            label5.Text = "Servo4";
+            label5.Text = "2 BR-X";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(356, 55);
+            label6.Location = new Point(509, 92);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(42, 15);
+            label6.Size = new Size(61, 25);
             label6.TabIndex = 43;
-            label6.Text = "Servo5";
+            label6.Text = "2 FL-Y";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(432, 56);
+            label7.Location = new Point(617, 93);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(42, 15);
+            label7.Size = new Size(64, 25);
             label7.TabIndex = 44;
-            label7.Text = "Servo6";
+            label7.Text = "1 FR-Y";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(513, 55);
+            label8.Location = new Point(733, 92);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(42, 15);
+            label8.Size = new Size(62, 25);
             label8.TabIndex = 45;
-            label8.Text = "Servo7";
+            label8.Text = "1 BL-Y";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(594, 56);
+            label9.Location = new Point(849, 93);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(42, 15);
+            label9.Size = new Size(65, 25);
             label9.TabIndex = 46;
-            label9.Text = "Servo8";
+            label9.Text = "2 BR-Y";
             // 
             // label10
             // 
             label10.Anchor = AnchorStyles.Right;
             label10.AutoSize = true;
-            label10.Location = new Point(1069, 561);
+            label10.Location = new Point(1527, 935);
+            label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(42, 15);
+            label10.Size = new Size(64, 25);
             label10.TabIndex = 47;
             label10.Text = "Status:";
             // 
             // statusLabel
             // 
             statusLabel.AutoSize = true;
-            statusLabel.Location = new Point(1117, 561);
+            statusLabel.ForeColor = Color.DarkRed;
+            statusLabel.Location = new Point(1596, 935);
+            statusLabel.Margin = new Padding(4, 0, 4, 0);
             statusLabel.Name = "statusLabel";
-            statusLabel.Size = new Size(44, 15);
+            statusLabel.Size = new Size(132, 25);
             statusLabel.TabIndex = 48;
-            statusLabel.Text = "label11";
+            statusLabel.Text = "Not Connected";
             // 
             // Servo1Label
             // 
             Servo1Label.AutoSize = true;
-            Servo1Label.Location = new Point(44, 724);
+            Servo1Label.Location = new Point(63, 1207);
+            Servo1Label.Margin = new Padding(4, 0, 4, 0);
             Servo1Label.Name = "Servo1Label";
-            Servo1Label.Size = new Size(19, 15);
+            Servo1Label.Size = new Size(22, 25);
             Servo1Label.TabIndex = 49;
-            Servo1Label.Text = "90";
+            Servo1Label.Text = "0";
             // 
             // Servo2Label
             // 
             Servo2Label.AutoSize = true;
-            Servo2Label.Location = new Point(130, 724);
+            Servo2Label.Location = new Point(182, 1207);
+            Servo2Label.Margin = new Padding(4, 0, 4, 0);
             Servo2Label.Name = "Servo2Label";
-            Servo2Label.Size = new Size(19, 15);
+            Servo2Label.Size = new Size(22, 25);
             Servo2Label.TabIndex = 50;
-            Servo2Label.Text = "90";
+            Servo2Label.Text = "0";
             // 
             // Servo3Label
             // 
             Servo3Label.AutoSize = true;
-            Servo3Label.Location = new Point(206, 724);
+            Servo3Label.Location = new Point(294, 1207);
+            Servo3Label.Margin = new Padding(4, 0, 4, 0);
             Servo3Label.Name = "Servo3Label";
-            Servo3Label.Size = new Size(19, 15);
+            Servo3Label.Size = new Size(22, 25);
             Servo3Label.TabIndex = 51;
-            Servo3Label.Text = "90";
+            Servo3Label.Text = "0";
             // 
             // Servo4Label
             // 
             Servo4Label.AutoSize = true;
-            Servo4Label.Location = new Point(285, 724);
+            Servo4Label.Location = new Point(407, 1207);
+            Servo4Label.Margin = new Padding(4, 0, 4, 0);
             Servo4Label.Name = "Servo4Label";
-            Servo4Label.Size = new Size(19, 15);
+            Servo4Label.Size = new Size(22, 25);
             Servo4Label.TabIndex = 52;
-            Servo4Label.Text = "90";
+            Servo4Label.Text = "0";
             // 
             // Servo5Label
             // 
             Servo5Label.AutoSize = true;
-            Servo5Label.Location = new Point(371, 724);
+            Servo5Label.Location = new Point(530, 1207);
+            Servo5Label.Margin = new Padding(4, 0, 4, 0);
             Servo5Label.Name = "Servo5Label";
-            Servo5Label.Size = new Size(19, 15);
+            Servo5Label.Size = new Size(22, 25);
             Servo5Label.TabIndex = 53;
-            Servo5Label.Text = "90";
+            Servo5Label.Text = "0";
             // 
             // Servo6Label
             // 
             Servo6Label.AutoSize = true;
-            Servo6Label.Location = new Point(447, 724);
+            Servo6Label.Location = new Point(639, 1207);
+            Servo6Label.Margin = new Padding(4, 0, 4, 0);
             Servo6Label.Name = "Servo6Label";
-            Servo6Label.Size = new Size(19, 15);
+            Servo6Label.Size = new Size(22, 25);
             Servo6Label.TabIndex = 54;
-            Servo6Label.Text = "90";
+            Servo6Label.Text = "0";
             // 
             // Servo7Label
             // 
             Servo7Label.AutoSize = true;
-            Servo7Label.Location = new Point(527, 724);
+            Servo7Label.Location = new Point(753, 1207);
+            Servo7Label.Margin = new Padding(4, 0, 4, 0);
             Servo7Label.Name = "Servo7Label";
-            Servo7Label.Size = new Size(19, 15);
+            Servo7Label.Size = new Size(22, 25);
             Servo7Label.TabIndex = 55;
-            Servo7Label.Text = "90";
+            Servo7Label.Text = "0";
             // 
             // Servo8Label
             // 
             Servo8Label.AutoSize = true;
-            Servo8Label.Location = new Point(608, 724);
+            Servo8Label.Location = new Point(869, 1207);
+            Servo8Label.Margin = new Padding(4, 0, 4, 0);
             Servo8Label.Name = "Servo8Label";
-            Servo8Label.Size = new Size(19, 15);
+            Servo8Label.Size = new Size(22, 25);
             Servo8Label.TabIndex = 56;
-            Servo8Label.Text = "90";
+            Servo8Label.Text = "0";
             // 
             // button1
             // 
-            button1.Location = new Point(1277, 525);
+            button1.Location = new Point(1824, 875);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(107, 38);
             button1.TabIndex = 57;
             button1.Text = "Disconnect";
             button1.UseVisualStyleBackColor = true;
@@ -420,17 +435,19 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(731, 48);
+            listBox1.ItemHeight = 25;
+            listBox1.Location = new Point(1044, 80);
+            listBox1.Margin = new Padding(4, 5, 4, 5);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(583, 139);
+            listBox1.Size = new Size(831, 229);
             listBox1.TabIndex = 58;
             // 
             // button2
             // 
-            button2.Location = new Point(714, 362);
+            button2.Location = new Point(1020, 603);
+            button2.Margin = new Padding(4, 5, 4, 5);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(107, 38);
             button2.TabIndex = 59;
             button2.Text = "Add to List";
             button2.UseVisualStyleBackColor = true;
@@ -438,9 +455,10 @@
             // 
             // button3
             // 
-            button3.Location = new Point(764, 216);
+            button3.Location = new Point(1091, 360);
+            button3.Margin = new Padding(4, 5, 4, 5);
             button3.Name = "button3";
-            button3.Size = new Size(75, 23);
+            button3.Size = new Size(107, 38);
             button3.TabIndex = 60;
             button3.Text = "Add Delay";
             button3.UseVisualStyleBackColor = true;
@@ -448,9 +466,10 @@
             // 
             // button4
             // 
-            button4.Location = new Point(816, 362);
+            button4.Location = new Point(1166, 603);
+            button4.Margin = new Padding(4, 5, 4, 5);
             button4.Name = "button4";
-            button4.Size = new Size(75, 23);
+            button4.Size = new Size(107, 38);
             button4.TabIndex = 61;
             button4.Text = "Delete";
             button4.UseVisualStyleBackColor = true;
@@ -458,9 +477,10 @@
             // 
             // button5
             // 
-            button5.Location = new Point(1010, 189);
+            button5.Location = new Point(1443, 315);
+            button5.Margin = new Padding(4, 5, 4, 5);
             button5.Name = "button5";
-            button5.Size = new Size(75, 23);
+            button5.Size = new Size(107, 38);
             button5.TabIndex = 62;
             button5.Text = "Play";
             button5.UseVisualStyleBackColor = true;
@@ -468,25 +488,28 @@
             // 
             // delayBox
             // 
-            delayBox.Location = new Point(753, 187);
+            delayBox.Location = new Point(1076, 312);
+            delayBox.Margin = new Padding(4, 5, 4, 5);
             delayBox.Name = "delayBox";
-            delayBox.Size = new Size(100, 23);
+            delayBox.Size = new Size(141, 31);
             delayBox.TabIndex = 63;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(708, 193);
+            label11.Location = new Point(1011, 322);
+            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(39, 15);
+            label11.Size = new Size(60, 25);
             label11.TabIndex = 64;
             label11.Text = "Delay:";
             // 
             // button6
             // 
-            button6.Location = new Point(1149, 193);
+            button6.Location = new Point(1641, 322);
+            button6.Margin = new Padding(4, 5, 4, 5);
             button6.Name = "button6";
-            button6.Size = new Size(107, 23);
+            button6.Size = new Size(153, 38);
             button6.TabIndex = 65;
             button6.Text = "Set Slider Values";
             button6.UseVisualStyleBackColor = true;
@@ -494,16 +517,18 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(731, 2);
+            textBox1.Location = new Point(1044, 3);
+            textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(430, 23);
+            textBox1.Size = new Size(613, 31);
             textBox1.TabIndex = 66;
             // 
             // button7
             // 
-            button7.Location = new Point(1181, 1);
+            button7.Location = new Point(1687, 2);
+            button7.Margin = new Padding(4, 5, 4, 5);
             button7.Name = "button7";
-            button7.Size = new Size(75, 23);
+            button7.Size = new Size(107, 38);
             button7.TabIndex = 67;
             button7.Text = "Add Value";
             button7.UseVisualStyleBackColor = true;
@@ -511,10 +536,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.ImageScalingSize = new Size(24, 24);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1904, 24);
+            menuStrip1.Padding = new Padding(9, 3, 0, 3);
+            menuStrip1.Size = new Size(2564, 35);
             menuStrip1.TabIndex = 68;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -522,45 +549,122 @@
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { uploadTextFileToolStripMenuItem, saveAsTextFileToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Size = new Size(54, 29);
             fileToolStripMenuItem.Text = "File";
             // 
             // uploadTextFileToolStripMenuItem
             // 
             uploadTextFileToolStripMenuItem.Name = "uploadTextFileToolStripMenuItem";
-            uploadTextFileToolStripMenuItem.Size = new Size(154, 22);
+            uploadTextFileToolStripMenuItem.Size = new Size(235, 34);
             uploadTextFileToolStripMenuItem.Text = "Upload text file";
             uploadTextFileToolStripMenuItem.Click += uploadTextFileToolStripMenuItem_Click;
             // 
             // saveAsTextFileToolStripMenuItem
             // 
             saveAsTextFileToolStripMenuItem.Name = "saveAsTextFileToolStripMenuItem";
-            saveAsTextFileToolStripMenuItem.Size = new Size(154, 22);
+            saveAsTextFileToolStripMenuItem.Size = new Size(235, 34);
             saveAsTextFileToolStripMenuItem.Text = "Save as text file";
             saveAsTextFileToolStripMenuItem.Click += saveAsTextFileToolStripMenuItem_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(904, 187);
+            textBox2.Location = new Point(1291, 312);
+            textBox2.Margin = new Padding(4, 5, 4, 5);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
+            textBox2.Size = new Size(141, 31);
             textBox2.TabIndex = 69;
             textBox2.Text = "0";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(963, 28);
+            label12.Location = new Point(1376, 47);
+            label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(58, 15);
+            label12.Size = new Size(88, 25);
             label12.TabIndex = 70;
             label12.Text = "Move List";
             // 
+            // speedSlider
+            // 
+            speedSlider.Location = new Point(1243, 440);
+            speedSlider.Maximum = 5000;
+            speedSlider.Minimum = 100;
+            speedSlider.Name = "speedSlider";
+            speedSlider.Size = new Size(571, 69);
+            speedSlider.TabIndex = 71;
+            speedSlider.Value = 1000;
+            speedSlider.ValueChanged += speedSlider_ValueChanged;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(1261, 528);
+            label13.Name = "label13";
+            label13.Size = new Size(105, 25);
+            label13.TabIndex = 72;
+            label13.Text = "Min. 100ms";
+            // 
+            // currentSpeedLabel
+            // 
+            currentSpeedLabel.AutoSize = true;
+            currentSpeedLabel.Location = new Point(1469, 528);
+            currentSpeedLabel.Name = "currentSpeedLabel";
+            currentSpeedLabel.Size = new Size(129, 25);
+            currentSpeedLabel.TabIndex = 73;
+            currentSpeedLabel.Text = "Current Speed:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(1686, 528);
+            label14.Name = "label14";
+            label14.Size = new Size(118, 25);
+            label14.TabIndex = 74;
+            label14.Text = "Max. 5000ms";
+            // 
+            // button8
+            // 
+            button8.Location = new Point(1086, 519);
+            button8.Name = "button8";
+            button8.Size = new Size(112, 34);
+            button8.TabIndex = 75;
+            button8.Text = "Set Default";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
+            // SetSliderDefaultBut
+            // 
+            SetSliderDefaultBut.Location = new Point(387, 1325);
+            SetSliderDefaultBut.Name = "SetSliderDefaultBut";
+            SetSliderDefaultBut.Size = new Size(191, 34);
+            SetSliderDefaultBut.TabIndex = 76;
+            SetSliderDefaultBut.Text = "Set Sliders Default";
+            SetSliderDefaultBut.UseVisualStyleBackColor = true;
+            SetSliderDefaultBut.Click += SetSliderDefaultBut_Click;
+            // 
+            // ClearListBut
+            // 
+            ClearListBut.Location = new Point(1947, 137);
+            ClearListBut.Name = "ClearListBut";
+            ClearListBut.Size = new Size(112, 34);
+            ClearListBut.TabIndex = 77;
+            ClearListBut.Text = "Clear List";
+            ClearListBut.UseVisualStyleBackColor = true;
+            ClearListBut.Click += ClearListBut_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(2564, 1570);
+            Controls.Add(ClearListBut);
+            Controls.Add(SetSliderDefaultBut);
+            Controls.Add(button8);
+            Controls.Add(label14);
+            Controls.Add(currentSpeedLabel);
+            Controls.Add(label13);
+            Controls.Add(speedSlider);
             Controls.Add(label12);
             Controls.Add(textBox2);
             Controls.Add(button7);
@@ -591,11 +695,9 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(numericUpDown1);
             Controls.Add(Servo1Lab);
-            Controls.Add(ServoSpeed);
             Controls.Add(connectBut);
             Controls.Add(Servo7Pos);
             Controls.Add(Servo8Pos);
@@ -607,6 +709,7 @@
             Controls.Add(Servo1Pos);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Servo Controller";
             Load += Form1_Load;
@@ -618,10 +721,10 @@
             ((System.ComponentModel.ISupportInitialize)Servo4Pos).EndInit();
             ((System.ComponentModel.ISupportInitialize)Servo8Pos).EndInit();
             ((System.ComponentModel.ISupportInitialize)Servo7Pos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ServoSpeed).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)speedSlider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -637,11 +740,9 @@
         private TrackBar Servo8Pos;
         private TrackBar Servo7Pos;
         private Button connectBut;
-        private TrackBar ServoSpeed;
         private Label Servo1Lab;
         private NumericUpDown numericUpDown1;
         private Label label1;
-        private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
@@ -676,5 +777,12 @@
         private TextBox textBox2;
         private ToolStripMenuItem uploadTextFileToolStripMenuItem;
         private Label label12;
+        private TrackBar speedSlider;
+        private Label label13;
+        private Label currentSpeedLabel;
+        private Label label14;
+        private Button button8;
+        private Button SetSliderDefaultBut;
+        private Button ClearListBut;
     }
 }
